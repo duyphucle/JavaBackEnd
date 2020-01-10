@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="vi-VN">
+<head>
+    <title>Escalent Survey - PANEL INTRO1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<form id="form" th:action="@{/cauhoi/__${surveyId}__/__${site+1}__}" th:object="${traloichitiet}" method="post">
+    <input th:type="hidden" name="value" id="demo">
+    <input th:type="hidden" name="idDapan" id="demo2">
+    <input th:type="hidden" name="idCauhoi" id="demo3">
+
+    <th:block th:each="ch : ${cauhois}">
+        <p class="mrQuestionText" th:text="${ch.tencauhoi}" th:idCauHoi="${ch.id}"></p>
+        <br>
+        <br>
+
+        <th:block th:each="da: ${dapAnss}">
+            <th:block th:if="${ch.tencauhoi == da.cauHoi.tencauhoi}">
+
+                <th:block th:if="${da.cauHoi.loai.tenLoai=='select'}">
+
+                    <th:block th:if="${da.value == 'Ngay'}">
+                        <select th:name="${da.name}" th:class="${da.class1}" th:idDapAn="${da.id}">
+                            <th:block th:each="ngay : ${ngays}">
+                                <option th:value="${ngay.value}" th:text="${ngay.innerText}"></option>
+                            </th:block>
+                        </select>
+                    </th:block>
+
+                    <th:block th:if="${da.value == 'Thang'}">
+                        <select th:name="${da.name}" th:class="${da.class1}" th:idDapAn="${da.id}">
+                            <th:block th:each="thang : ${thangs}">
+                                <option th:value="${thang.value}" th:text="${thang.innerText}"></option>
+                            </th:block>
+                        </select>
+                    </th:block>
+
+                    <th:block th:if="${da.value == 'Xe'}">
+                        <select th:name="${da.name}" th:class="${da.class1}" th:idDapAn="${da.id}">
+                        </select>
+                    </th:block>
+                    <br>
+                </th:block>
+
+                <th:block th:unless="${da.cauHoi.loai.tenLoai =='select'}">
+                    <th:block th:if="${da.cauHoi.loai.tenLoai == 'radio'}">
+                        <input th:type="${da.cauHoi.loai.tenLoai}" th:name="${da.name}" th:id="${da.luachon}"
+                               th:class="${da.class1}" th:value="${da.value}" th:text="${da.innerText}"
+                               th:idDapAn="${da.id}" required> <br>
+                    </th:block>
+
+                    <th:block th:if="${da.cauHoi.loai.tenLoai == 'text'}">
+                        <input th:type="${da.cauHoi.loai.tenLoai}" th:name="${da.name}" th:id="${da.luachon}"
+                               th:class="${da.class1}" th:text="${da.innerText}"
+                               th:idDapAn="${da.id}" required> <br>
+                    </th:block>
+
+                    <th:block th:if="${da.cauHoi.loai.tenLoai == 'checkbox'}">
+                        <div th:idCauHoi="${ch.id}">
+                            <input th:type="${da.cauHoi.loai.tenLoai}" th:name="${da.name}" th:id="${da.luachon}"
+                                   th:class="${da.class1}" th:value="${da.value}" th:text="${da.innerText}"
+                                   th:idDapAn="${da.id}"> <br>
+                        </div>
+                    </th:block>
+
+                    <th:block th:if="${da.cauHoi.loai.tenLoai == 'session'}">
+                        <div th:idCauHoi="${ch.id}" th:if="${da.value == 'Xe'}" th:each="hangxe : ${hangxes}">
+                            <input type="checkbox" th:value="${hangxe}" th:text="${hangxe}"
+                                   th:idDapAn="${da.id}"> <br>
+                        </div>
+                    </th:block>
+
+                    <th:block th:if="${da.cauHoi.loai.tenLoai} == 'session '+ ${cauHoiSession}">
+                        <div th:idCauHoi="${ch.id}" th:if="${da.value == 'Xe'}" th:each="dongXe : ${dongXes}">
+                            <input type="checkbox" th:value="${dongXe}" th:text="${dongXe}"
+                                   th:idDapAn="${da.id}"> <br>
+                        </div>
+                    </th:block>
+
+
+                </th:block>
+            </th:block>
+        </th:block>
+    </th:block>
+    <button type="submit" onclick="return myfunc()">Submit</button>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="/js/phuctran.js"></script>
+
+
+</body>
+</html>

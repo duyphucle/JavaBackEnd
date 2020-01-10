@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout::head"></head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <th:block th:replace="/layout::sidebar"></th:block>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <th:block th:replace="/layout::topbar"></th:block>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">ThongTin</h1>
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Create ThongTins</h6>
+
+                        <th:block th:if="${message}">
+                            <div class="alert alert-success" role="alert">
+                                <span class="message" th:text="${message}"></span>
+                            </div>
+                        </th:block>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-horizontal" th:action="@{/create-thongtin}" th:object="${thongtin}"
+                              method="post">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Ten</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="Ten" th:field="*{ten}">
+                                    <th:block th:if="${#fields.hasErrors('ten')}" th:errors="*{ten}">Ten Error</th:block>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Tuoi</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="Tuoi" th:field="*{tuoi}">
+                                    <th:block th:if="${#fields.hasErrors('tuoi')}" th:errors="*{tuoi}">Tuoi Error</th:block>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">CMND</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="CMND" th:field="*{cMND}">
+                                    <th:block th:if="${#fields.hasErrors('cMND')}" th:errors="*{cMND}">CMND Error</th:block>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">QueQuan</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="QueQuan" th:field="*{queQuan}">
+                                    <th:block th:if="${#fields.hasErrors('queQuan')}" th:errors="*{queQuan}">QueQuan Error</th:block>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="reset" class="btn btn-secondary btn-flat">Reset</button>
+                                <button type="submit" class="btn btn-primary btn-flat float-right">Create thongtin
+                                </button>
+                            </div>
+                            <!-- /.box-footer -->
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <th:block th:replace="/layout::footer"></th:block>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<th:block th:replace="/layout::topbtn"></th:block>
+
+<!-- Logout Modal-->
+<th:block th:replace="/layout::logoutmodal"></th:block>
+
+<th:block th:replace="/layout::jsfiles"></th:block>
+</body>
+
+</html>

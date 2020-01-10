@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Survey</title>
+    <th:block th:replace="/home/layoutUser::head"></th:block>
+
+</head>
+<body>
+
+
+<!-- header-start -->
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid p-0">
+                <div class="row align-items-center no-gutters">
+                    <div class="col-xl-2 col-lg-2">
+                        <div class="logo-img">
+                            <a href="index.html">
+                                <img src="img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="main-menu  d-none d-lg-block">
+                            <nav>
+                                <ul id="navigation">
+                                    <li><a class="active" href="index.html">home</a></li>
+                                    <li><a href="Courses.html">Courses</a></li>
+                                    <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                        <ul class="submenu">
+                                            <li><a href="course_details.html">course details</a></li>
+                                            <li><a href="elements.html">elements</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                        <ul class="submenu">
+                                            <li><a href="blog.html">blog</a></li>
+                                            <li><a href="single-blog.html">single-blog</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                        <div class="log_chat_area d-flex align-items-center">
+                            <a href="#test-form" class="login popup-with-form">
+                                <i class="flaticon-user"></i>
+                                <span>log in</span>
+                            </a>
+                            <div class="live_chat_btn">
+                                <a class="boxed_btn_orange" href="#">
+                                    <i class="fa fa-phone"></i>
+                                    <span>+10 378 467 3672</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-end -->
+
+<!-- slider_area_start -->
+<div class="slider_area ">
+    <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-6 col-md-6">
+                    <div class="illastrator_png">
+                        <img src="img/banner/edu_ilastration.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider_area_end -->
+
+
+<!-- form itself end-->
+<form id="test-form" class="white-popup-block mfp-hide">
+    <div class="popup_box ">
+        <div class="popup_inner">
+            <div class="logo text-center">
+                <a href="#">
+                    <img src="img/form-logo.png" alt="">
+                </a>
+            </div>
+            <h3>Sign in</h3>
+            <form action="#">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                        <input type="email" placeholder="Enter email">
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <div class="col-xl-12">
+                        <button type="submit" class="boxed_btn_orange">Sign in</button>
+                    </div>
+                </div>
+            </form>
+            <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
+            </p>
+        </div>
+    </div>
+</form>
+<!-- form itself end -->
+
+<!-- form itself end-->
+<form id="test-form2" class="white-popup-block mfp-hide">
+    <div class="popup_box ">
+        <div class="popup_inner">
+            <div class="logo text-center">
+                <a href="#">
+                    <img src="img/form-logo.png" alt="">
+                </a>
+            </div>
+            <h3>Resistration</h3>
+            <form action="#">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                        <input type="email" placeholder="Enter email">
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <input type="Password" placeholder="Confirm password">
+                    </div>
+                    <div class="col-xl-12">
+                        <button type="submit" class="boxed_btn_orange">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</form>
+<!-- form itself end -->
+
+
+<!-- JS here -->
+
+
+<!--<th:block th:replace="/home/layoutUser::header"></th:block>-->
+
+<!--&lt;!&ndash; Hero section &ndash;&gt;-->
+<!--<section class="hero-section set-bg" data-setbg="/ithost/img/bg.jpg">-->
+<!--    <div class="container h-100">-->
+<!--        <div class="hero-content text-white">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-6 pr-0">-->
+<!--                    <h2>Khảo sát trực tuyến</h2>-->
+<!--                    <p>Bạn là người góp phần tạo nên thế giới. Những suy nghĩ của bạn góp phần làm cho sản phẩm của-->
+<!--                        chúng tôi hoàn thiện hơn. Hãy bắt đầu cuộc khảo sát.</p>-->
+<!--                    <a href="#" class="site-btn">Đăng Kí</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="hero-rocket">-->
+<!--                <img src="/ithost/img/rocket.png" alt="">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; Hero section end &ndash;&gt;-->
+
+
+<!--&lt;!&ndash; Features section &ndash;&gt;-->
+<!--<section class="features-section spad">-->
+<!--    <div class="container">-->
+<!--        <div class="section-title">-->
+<!--            <img src="/ithost/img/section-title-icon.png" alt="#">-->
+<!--            <p>Nhóm phát triển DTP</p>-->
+<!--            <h2>Bắt Đầu Cuộc Khảo Sát Của Bạn</h2>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-4 col-md-6 feature-item">-->
+<!--                <div class="ft-icon">-->
+<!--                    &lt;!&ndash;                    <i class="flaticon-domain-registration"></i>&ndash;&gt;-->
+<!--                    <i class="fas fa-comments-dollar"></i>-->
+<!--                </div>-->
+<!--                <h4>Sự hài lòng của khách hàng</h4>-->
+<!--                <p>Nhận phản hồi thời gian thực để cải thiện sản phẩm, dịch vụ và kinh doanh tổng thể.</p>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 feature-item fi-center-top">-->
+<!--                <div class="ft-icon">-->
+<!--                    &lt;!&ndash;                    <i class="flaticon-server"></i>&ndash;&gt;-->
+<!--                    <i class="far fa-id-card"></i>-->
+<!--                </div>-->
+<!--                <h4>Sự tham gia của người lao động</h4>-->
+<!--                <p>Hiểu cách giữ chân nhân tài tốt nhất và xây dựng văn hóa công ty lành mạnh.</p>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 feature-item">-->
+<!--                <div class="ft-icon">-->
+<!--                    &lt;!&ndash;                    <i class="flaticon-devices"></i>&ndash;&gt;-->
+<!--                    <i class="fas fa-funnel-dollar"></i>-->
+<!--                </div>-->
+<!--                <h4>Nghiên cứu thị trường</h4>-->
+<!--                <p>Theo dõi các xu hướng của ngành và thị trường để đi trước đối thủ.</p>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 feature-item">-->
+<!--                <div class="ft-icon">-->
+<!--                    &lt;!&ndash;                    <i class="flaticon-smartphone"></i>&ndash;&gt;-->
+<!--                    <i class="far fa-calendar-alt"></i>-->
+<!--                </div>-->
+<!--                <h4>Kế hoạch tổ chức sự kiện</h4>-->
+<!--                <p>Thu thập thông tin phản hồi trước, trong thời gian thực! Và sau các sự kiện của bạn.</p>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 feature-item">-->
+<!--                <div class="ft-icon">-->
+<!--                    &lt;!&ndash;                    <i class="flaticon-folder"></i>&ndash;&gt;-->
+<!--                    <i class="fas fa-school"></i>-->
+<!--                </div>-->
+<!--                <h4>Giáo dục và trường học</h4>-->
+<!--                <p>Nhận câu trả lời để cải thiện chương trình, quy trình và thành tích học tập.</p>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 feature-item">-->
+<!--                <div class="ft-icon">-->
+<!--                    &lt;!&ndash;                    <i class="flaticon-viral-marketing"></i>&ndash;&gt;-->
+<!--                    <i class="fas fa-stethoscope"></i>-->
+<!--                </div>-->
+<!--                <h4>Chăm sóc sức khỏe</h4>-->
+<!--                <p>Hỗ trợ giao tiếp với nhà cung cấp bệnh nhân bằng cách nhận phản hồi.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; Features section end &ndash;&gt;-->
+
+
+<!--&lt;!&ndash; Domain search section &ndash;&gt;-->
+<!--<section class="domain-search-section spad set-bg" data-setbg="/ithost/img/domain-bg.jpg">-->
+<!--    <div class="container">-->
+<!--        <div class="section-title st-white">-->
+<!--            <img src="/ithost/img/section-title-icon.png" alt="#">-->
+<!--            <p>Nhóm phát triển DTP</p>-->
+<!--            <h2>Bắt Đầu Cuộc Khảo Sát Của Bạn</h2>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; member_counter counter start &ndash;&gt;-->
+<!--        <section class="member_counter">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-3 col-sm-6">-->
+<!--                        <div class="single_member_counter">-->
+<!--                            <span class="counter">24786</span>-->
+<!--                            <h4>Khách hàng</h4>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-3 col-sm-6">-->
+<!--                        <div class="single_member_counter">-->
+<!--                            <span class="counter">37565</span>-->
+<!--                            <h4>Theo dõi</h4>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-3 col-sm-6">-->
+<!--                        <div class="single_member_counter">-->
+<!--                            <span class="counter">8555</span>-->
+<!--                            <h4>Bài khảo sát</h4>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-3 col-sm-6">-->
+<!--                        <div class="single_member_counter">-->
+<!--                            <span class="counter">932833</span>-->
+<!--                            <h4>Số tiền đã trả ($)</h4>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--        &lt;!&ndash; member_counter counter end &ndash;&gt;-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; Domain search section end &ndash;&gt;-->
+
+
+<!--&lt;!&ndash; Skills & testimonials section &ndash;&gt;-->
+<!--<section class="skills-and-testimonials-section spad">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            &lt;!&ndash; Skills &ndash;&gt;-->
+<!--            <div class="col-lg-6">-->
+<!--                <div class="single-progress-item">-->
+<!--                    <p>Illustrator</p>-->
+<!--                    <div class="progress-bar-style" data-progress="80" data-bgcolor="#eb2b63"></div>-->
+<!--                </div>-->
+<!--                <div class="single-progress-item">-->
+<!--                    <p>Photoshop</p>-->
+<!--                    <div class="progress-bar-style" data-progress="90" data-bgcolor="#eb2bae"></div>-->
+<!--                </div>-->
+<!--                <div class="single-progress-item">-->
+<!--                    <p>SEO</p>-->
+<!--                    <div class="progress-bar-style" data-progress="80" data-bgcolor="#d22beb"></div>-->
+<!--                </div>-->
+<!--                <div class="single-progress-item">-->
+<!--                    <p>E-commerce</p>-->
+<!--                    <div class="progress-bar-style" data-progress="60" data-bgcolor="#972beb"></div>-->
+<!--                </div>-->
+<!--                <div class="single-progress-item">-->
+<!--                    <p>HTML</p>-->
+<!--                    <div class="progress-bar-style" data-progress="70" data-bgcolor="#732beb"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; Testimonials &ndash;&gt;-->
+<!--            <div class="col-lg-6">-->
+<!--                <div class="testimonials-slider owl-carousel">-->
+<!--                    <div class="testimonial-item">-->
+<!--                        <div class="ti-content">-->
+<!--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi ea molestiae quae quasi quibusdam, reprehenderit tempore unde? Eaque et laborum, molestiae nulla quas quasi sequi tenetur voluptas voluptatibus.</p>-->
+<!--                        </div>-->
+<!--                        <div class="ti-author-pic set-bg" data-setbg="/ithost/img/review/1.jpg"></div>-->
+<!--                        <div class="ti-author">-->
+<!--                            <h6>Kỷ Nguyên</h6>-->
+<!--                            <span>Khách hàng</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="testimonial-item">-->
+<!--                        <div class="ti-content">-->
+<!--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium eius, nemo neque nobis quidem recusandae rerum vitae! Eaque saepe, vel! Impedit in maiores nam officia quisquam totam ullam veniam! In.</p>-->
+<!--                        </div>-->
+<!--                        <div class="ti-author-pic set-bg" data-setbg="/ithost/img/review/1.jpg"></div>-->
+<!--                        <div class="ti-author">-->
+<!--                            <h6>Đồng Thảo My</h6>-->
+<!--                            <span>Khách hàng</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="testimonial-item">-->
+<!--                        <div class="ti-content">-->
+<!--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur laboriosam quidem sed vero voluptatibus. Ad adipisci asperiores doloribus, dolorum fugit iste iusto perspiciatis porro repellendus soluta. Aliquid natus provident sint?</p>-->
+<!--                        </div>-->
+<!--                        <div class="ti-author-pic set-bg" data-setbg="/ithost/img/review/1.jpg"></div>-->
+<!--                        <div class="ti-author">-->
+<!--                            <h6>Hữu Quân</h6>-->
+<!--                            <span>Khách hàng</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; Skills & testimonials section end &ndash;&gt;-->
+
+
+<!--<th:block th:replace="/home/layoutUser::footer"></th:block>-->
+
+
+<th:block th:replace="/home/layoutUser::script"></th:block>
+</body>
+</html>
+
+
+<!--<!doctype html>-->
+<!--<html class="no-js" lang="zxx">-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta http-equiv="x-ua-compatible" content="ie=edge">-->
+<!--    <title>Edumark</title>-->
+<!--    <meta name="description" content="">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+<!--    &lt;!&ndash; <link rel="manifest" href="site.webmanifest"> &ndash;&gt;-->
+<!--    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">-->
+<!--    &lt;!&ndash; Place favicon.ico in the root directory &ndash;&gt;-->
+
+<!--    &lt;!&ndash; CSS here &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="/ithost/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="/ithost/css/magnific-popup.css">-->
+<!--    <link rel="stylesheet" href="/ithost/css/style.css">-->
+
+<!--</head>-->
+
+<!--<body>-->
+<!--&lt;!&ndash;[if lte IE 9]>-->
+<!--<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade-->
+<!--    your browser</a> to improve your experience and security.</p>-->
+<!--<![endif]&ndash;&gt;-->
+
+<!--&lt;!&ndash; header-start &ndash;&gt;-->
+<!--<header>-->
+<!--    <div class="header-area ">-->
+<!--        <div id="sticky-header" class="main-header-area">-->
+<!--            <div class="container-fluid p-0">-->
+<!--                <div class="row align-items-center no-gutters">-->
+<!--                    <div class="col-xl-2 col-lg-2">-->
+<!--                        <div class="logo-img">-->
+<!--                            <a href="index.html">-->
+<!--                                <img src="/ithost/img/logo.png" alt="">-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-7 col-lg-7">-->
+<!--                        <div class="main-menu  d-none d-lg-block">-->
+<!--                            <nav>-->
+<!--                                <ul id="navigation">-->
+<!--                                    <li><a class="active" href="index.html">home</a></li>-->
+<!--                                    <li><a href="Courses.html">Courses</a></li>-->
+<!--                                    <li><a href="#">pages <i class="ti-angle-down"></i></a>-->
+<!--                                        <ul class="submenu">-->
+<!--                                            <li><a href="course_details.html">course details</a></li>-->
+<!--                                            <li><a href="elements.html">elements</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+<!--                                    <li><a href="about.html">About</a></li>-->
+<!--                                    <li><a href="#">blog <i class="ti-angle-down"></i></a>-->
+<!--                                        <ul class="submenu">-->
+<!--                                            <li><a href="blog.html">blog</a></li>-->
+<!--                                            <li><a href="single-blog.html">single-blog</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+<!--                                    <li><a href="contact.html">Contact</a></li>-->
+<!--                                </ul>-->
+<!--                            </nav>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-3 col-lg-3 d-none d-lg-block">-->
+<!--                        <div class="log_chat_area d-flex align-items-center">-->
+<!--                            <a href="#test-form" class="login popup-with-form">-->
+<!--                                <i class="flaticon-user"></i>-->
+<!--                                <span>log in</span>-->
+<!--                            </a>-->
+<!--                            <div class="live_chat_btn">-->
+<!--                                <a class="boxed_btn_orange" href="#">-->
+<!--                                    <i class="fa fa-phone"></i>-->
+<!--                                    <span>+10 378 467 3672</span>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-12">-->
+<!--                        <div class="mobile_menu d-block d-lg-none"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+<!--&lt;!&ndash; header-end &ndash;&gt;-->
+
+<!--&lt;!&ndash; slider_area_start &ndash;&gt;-->
+<!--<div class="slider_area ">-->
+<!--    <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">-->
+<!--        <div class="container">-->
+<!--            <div class="row align-items-center justify-content-center">-->
+<!--                <div class="col-xl-6 col-md-6">-->
+<!--                    <div class="illastrator_png">-->
+<!--                        <img src="/ithost/img/edu_ilastration.png" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash; slider_area_end &ndash;&gt;-->
+
+
+<!--&lt;!&ndash; form itself end&ndash;&gt;-->
+<!--<form id="test-form" class="white-popup-block mfp-hide">-->
+<!--    <div class="popup_box ">-->
+<!--        <div class="popup_inner">-->
+<!--            <div class="logo text-center">-->
+<!--                <a href="#">-->
+<!--                    <img src="/ithost/img/form-logo.png" alt="">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <h3>Sign in</h3>-->
+<!--            <form action="#">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-xl-12 col-md-12">-->
+<!--                        <input type="email" placeholder="Enter email">-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-12 col-md-12">-->
+<!--                        <input type="password" placeholder="Password">-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-12">-->
+<!--                        <button type="submit" class="boxed_btn_orange">Sign in</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--            <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</form>-->
+<!--&lt;!&ndash; form itself end &ndash;&gt;-->
+
+<!--&lt;!&ndash; form itself end&ndash;&gt;-->
+<!--<form id="test-form2" class="white-popup-block mfp-hide">-->
+<!--    <div class="popup_box ">-->
+<!--        <div class="popup_inner">-->
+<!--            <div class="logo text-center">-->
+<!--                <a href="#">-->
+<!--                    <img src="/ithost/img/form-logo.png" alt="">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <h3>Resistration</h3>-->
+<!--            <form action="#">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-xl-12 col-md-12">-->
+<!--                        <input type="email" placeholder="Enter email">-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-12 col-md-12">-->
+<!--                        <input type="password" placeholder="Password">-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-12 col-md-12">-->
+<!--                        <input type="Password" placeholder="Confirm password">-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-12">-->
+<!--                        <button type="submit" class="boxed_btn_orange">Sign Up</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</form>-->
+<!--&lt;!&ndash; form itself end &ndash;&gt;-->
+
+
+<!--&lt;!&ndash;&lt;!&ndash; JS here &ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script src="/ithost/js/jquery-1.12.4.min.js"></script>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<script src="/ithost/js/owl.carousel.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="/ithost/js/isotope.pkgd.min.js"></script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script src="/ithost/js/jquery.counterup.min.js"></script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script src="/ithost/js/scrollIt.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="/ithost/js/jquery.scrollUp.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="/ithost/js/wow.min.js"></script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script src="/ithost/js/jquery.slicknav.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="/ithost/js/jquery.magnific-popup.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<script src="/ithost/js/jquery.magnific-popup.min.js"></script>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script src="/ithost/js/main.js"></script>&ndash;&gt;-->
+<!--<th:block th:replace="/home/layoutUser::script"></th:block>-->
+
+<!--</body>-->
+
+<!--</html>-->

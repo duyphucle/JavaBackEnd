@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout::head"></head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <th:block th:replace="/layout::sidebar"></th:block>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <th:block th:replace="/layout::topbar"></th:block>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">NhaCungCap</h1>
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Create NhaCungCaps</h6>
+
+                        <th:block th:if="${message}">
+                            <div class="alert alert-success" role="alert">
+                                <span class="message" th:text="${message}"></span>
+                            </div>
+                        </th:block>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-horizontal" th:action="@{/create-nhacungcap}" th:object="${nhacungcap}"
+                              method="post">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">TenNhaCungCap</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="TenNhaCungCap" th:field="*{tenNhaCungCap}">
+                                    <th:block th:if="${#fields.hasErrors('tenNhaCungCap')}" th:errors="*{tenNhaCungCap}">TenNhaCungCap Error</th:block>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">DiaChi</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="DiaChi" th:field="*{diaChi}">
+                                    <th:block th:if="${#fields.hasErrors('diaChi')}" th:errors="*{diaChi}">DiaChi Error</th:block>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">ThanhPho</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="ThanhPho" th:field="*{thanhPho}">
+                                    <th:block th:if="${#fields.hasErrors('thanhPho')}" th:errors="*{thanhPho}">ThanhPho Error</th:block>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">QuocGia</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="QuocGia" th:field="*{quocGia}">
+                                    <th:block th:if="${#fields.hasErrors('quocGia')}" th:errors="*{quocGia}">QuocGia Error</th:block>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">MaBuuDien</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="MaBuuDien" th:field="*{maBuuDien}">
+                                    <th:block th:if="${#fields.hasErrors('maBuuDien')}" th:errors="*{maBuuDien}">MaBuuDien Error</th:block>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SDT</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="SDT" th:field="*{sDT}">
+                                    <th:block th:if="${#fields.hasErrors('sDT')}" th:errors="*{sDT}">SDT Error</th:block>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="reset" class="btn btn-secondary btn-flat">Reset</button>
+                                <button type="submit" class="btn btn-primary btn-flat float-right">Create nhacungcap
+                                </button>
+                            </div>
+                            <!-- /.box-footer -->
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <th:block th:replace="/layout::footer"></th:block>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<th:block th:replace="/layout::topbtn"></th:block>
+
+<!-- Logout Modal-->
+<th:block th:replace="/layout::logoutmodal"></th:block>
+
+<th:block th:replace="/layout::jsfiles"></th:block>
+</body>
+
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Tables</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="/sb2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/sb2/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="/sb2/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+<th:block th:fragment="sidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/customers">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCauHoi" aria-expanded="true" aria-controls="collapseCauHoi">
+                <i class="fas fa-fw fa-table"></i>
+                <span>CauHoi</span>
+            </a>
+            <div id="collapseCauHoi" class="collapse" aria-labelledby="headingCauHoi" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom CauHoi:</h6>
+                    <a class="collapse-item" href="/cauhois">List</a>
+                    <a class="collapse-item" href="/create-cauhoi">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDapAn" aria-expanded="true" aria-controls="collapseDapAn">
+                <i class="fas fa-fw fa-table"></i>
+                <span>DapAn</span>
+            </a>
+            <div id="collapseDapAn" class="collapse" aria-labelledby="headingDapAn" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom DapAn:</h6>
+                    <a class="collapse-item" href="/dapans">List</a>
+                    <a class="collapse-item" href="/create-dapan">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDatHang" aria-expanded="true" aria-controls="collapseDatHang">
+                <i class="fas fa-fw fa-table"></i>
+                <span>DatHang</span>
+            </a>
+            <div id="collapseDatHang" class="collapse" aria-labelledby="headingDatHang" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom DatHang:</h6>
+                    <a class="collapse-item" href="/dathangs">List</a>
+                    <a class="collapse-item" href="/create-dathang">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDatHangChiTiet" aria-expanded="true" aria-controls="collapseDatHangChiTiet">
+                <i class="fas fa-fw fa-table"></i>
+                <span>DatHangChiTiet</span>
+            </a>
+            <div id="collapseDatHangChiTiet" class="collapse" aria-labelledby="headingDatHangChiTiet" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom DatHangChiTiet:</h6>
+                    <a class="collapse-item" href="/dathangchitiets">List</a>
+                    <a class="collapse-item" href="/create-dathangchitiet">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHanhChinh" aria-expanded="true" aria-controls="collapseHanhChinh">
+                <i class="fas fa-fw fa-table"></i>
+                <span>HanhChinh</span>
+            </a>
+            <div id="collapseHanhChinh" class="collapse" aria-labelledby="headingHanhChinh" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom HanhChinh:</h6>
+                    <a class="collapse-item" href="/hanhchinhs">List</a>
+                    <a class="collapse-item" href="/create-hanhchinh">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHuyen" aria-expanded="true" aria-controls="collapseHuyen">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Huyen</span>
+            </a>
+            <div id="collapseHuyen" class="collapse" aria-labelledby="headingHuyen" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Huyen:</h6>
+                    <a class="collapse-item" href="/huyens">List</a>
+                    <a class="collapse-item" href="/create-huyen">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLoai" aria-expanded="true" aria-controls="collapseLoai">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Loai</span>
+            </a>
+            <div id="collapseLoai" class="collapse" aria-labelledby="headingLoai" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Loai:</h6>
+                    <a class="collapse-item" href="/loais">List</a>
+                    <a class="collapse-item" href="/create-loai">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLoaiSanPham" aria-expanded="true" aria-controls="collapseLoaiSanPham">
+                <i class="fas fa-fw fa-table"></i>
+                <span>LoaiSanPham</span>
+            </a>
+            <div id="collapseLoaiSanPham" class="collapse" aria-labelledby="headingLoaiSanPham" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom LoaiSanPham:</h6>
+                    <a class="collapse-item" href="/loaisanphams">List</a>
+                    <a class="collapse-item" href="/create-loaisanpham">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNam" aria-expanded="true" aria-controls="collapseNam">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Nam</span>
+            </a>
+            <div id="collapseNam" class="collapse" aria-labelledby="headingNam" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Nam:</h6>
+                    <a class="collapse-item" href="/nams">List</a>
+                    <a class="collapse-item" href="/create-nam">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNgay" aria-expanded="true" aria-controls="collapseNgay">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Ngay</span>
+            </a>
+            <div id="collapseNgay" class="collapse" aria-labelledby="headingNgay" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Ngay:</h6>
+                    <a class="collapse-item" href="/ngays">List</a>
+                    <a class="collapse-item" href="/create-ngay">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNhaCungCap" aria-expanded="true" aria-controls="collapseNhaCungCap">
+                <i class="fas fa-fw fa-table"></i>
+                <span>NhaCungCap</span>
+            </a>
+            <div id="collapseNhaCungCap" class="collapse" aria-labelledby="headingNhaCungCap" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom NhaCungCap:</h6>
+                    <a class="collapse-item" href="/nhacungcaps">List</a>
+                    <a class="collapse-item" href="/create-nhacungcap">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNhapKho" aria-expanded="true" aria-controls="collapseNhapKho">
+                <i class="fas fa-fw fa-table"></i>
+                <span>NhapKho</span>
+            </a>
+            <div id="collapseNhapKho" class="collapse" aria-labelledby="headingNhapKho" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom NhapKho:</h6>
+                    <a class="collapse-item" href="/nhapkhos">List</a>
+                    <a class="collapse-item" href="/create-nhapkho">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePhuong" aria-expanded="true" aria-controls="collapsePhuong">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Phuong</span>
+            </a>
+            <div id="collapsePhuong" class="collapse" aria-labelledby="headingPhuong" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Phuong:</h6>
+                    <a class="collapse-item" href="/phuongs">List</a>
+                    <a class="collapse-item" href="/create-phuong">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSanPham" aria-expanded="true" aria-controls="collapseSanPham">
+                <i class="fas fa-fw fa-table"></i>
+                <span>SanPham</span>
+            </a>
+            <div id="collapseSanPham" class="collapse" aria-labelledby="headingSanPham" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom SanPham:</h6>
+                    <a class="collapse-item" href="/sanphams">List</a>
+                    <a class="collapse-item" href="/create-sanpham">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSell" aria-expanded="true" aria-controls="collapseSell">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Sell</span>
+            </a>
+            <div id="collapseSell" class="collapse" aria-labelledby="headingSell" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Sell:</h6>
+                    <a class="collapse-item" href="/sells">List</a>
+                    <a class="collapse-item" href="/create-sell">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSellTheoSanPham" aria-expanded="true" aria-controls="collapseSellTheoSanPham">
+                <i class="fas fa-fw fa-table"></i>
+                <span>SellTheoSanPham</span>
+            </a>
+            <div id="collapseSellTheoSanPham" class="collapse" aria-labelledby="headingSellTheoSanPham" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom SellTheoSanPham:</h6>
+                    <a class="collapse-item" href="/selltheosanphams">List</a>
+                    <a class="collapse-item" href="/create-selltheosanpham">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSurvey" aria-expanded="true" aria-controls="collapseSurvey">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Survey</span>
+            </a>
+            <div id="collapseSurvey" class="collapse" aria-labelledby="headingSurvey" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Survey:</h6>
+                    <a class="collapse-item" href="/surveys">List</a>
+                    <a class="collapse-item" href="/create-survey">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThang" aria-expanded="true" aria-controls="collapseThang">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Thang</span>
+            </a>
+            <div id="collapseThang" class="collapse" aria-labelledby="headingThang" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Thang:</h6>
+                    <a class="collapse-item" href="/thangs">List</a>
+                    <a class="collapse-item" href="/create-thang">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThanhPho" aria-expanded="true" aria-controls="collapseThanhPho">
+                <i class="fas fa-fw fa-table"></i>
+                <span>ThanhPho</span>
+            </a>
+            <div id="collapseThanhPho" class="collapse" aria-labelledby="headingThanhPho" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom ThanhPho:</h6>
+                    <a class="collapse-item" href="/thanhphos">List</a>
+                    <a class="collapse-item" href="/create-thanhpho">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThongTin" aria-expanded="true" aria-controls="collapseThongTin">
+                <i class="fas fa-fw fa-table"></i>
+                <span>ThongTin</span>
+            </a>
+            <div id="collapseThongTin" class="collapse" aria-labelledby="headingThongTin" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom ThongTin:</h6>
+                    <a class="collapse-item" href="/thongtins">List</a>
+                    <a class="collapse-item" href="/create-thongtin">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTraLoi" aria-expanded="true" aria-controls="collapseTraLoi">
+                <i class="fas fa-fw fa-table"></i>
+                <span>TraLoi</span>
+            </a>
+            <div id="collapseTraLoi" class="collapse" aria-labelledby="headingTraLoi" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom TraLoi:</h6>
+                    <a class="collapse-item" href="/tralois">List</a>
+                    <a class="collapse-item" href="/create-traloi">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTraLoiChiTiet" aria-expanded="true" aria-controls="collapseTraLoiChiTiet">
+                <i class="fas fa-fw fa-table"></i>
+                <span>TraLoiChiTiet</span>
+            </a>
+            <div id="collapseTraLoiChiTiet" class="collapse" aria-labelledby="headingTraLoiChiTiet" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom TraLoiChiTiet:</h6>
+                    <a class="collapse-item" href="/traloichitiets">List</a>
+                    <a class="collapse-item" href="/create-traloichitiet">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
+                <i class="fas fa-fw fa-table"></i>
+                <span>User</span>
+            </a>
+            <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom User:</h6>
+                    <a class="collapse-item" href="/users">List</a>
+                    <a class="collapse-item" href="/create-user">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUserDoingSurvey" aria-expanded="true" aria-controls="collapseUserDoingSurvey">
+                <i class="fas fa-fw fa-table"></i>
+                <span>UserDoingSurvey</span>
+            </a>
+            <div id="collapseUserDoingSurvey" class="collapse" aria-labelledby="headingUserDoingSurvey" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom UserDoingSurvey:</h6>
+                    <a class="collapse-item" href="/userdoingsurveys">List</a>
+                    <a class="collapse-item" href="/create-userdoingsurvey">Create</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseXe" aria-expanded="true" aria-controls="collapseXe">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Xe</span>
+            </a>
+            <div id="collapseXe" class="collapse" aria-labelledby="headingXe" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Xe:</h6>
+                    <a class="collapse-item" href="/xes">List</a>
+                    <a class="collapse-item" href="/create-xe">Create</a>
+                </div>
+            </div>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+    </ul>
+</th:block>
+
+<th:block th:fragment="topbar">
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- Topbar Search -->
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                       aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-search fa-fw"></i>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                     aria-labelledby="searchDropdown">
+                    <form class="form-inline mr-auto w-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                   placeholder="Search for..." aria-label="Search"
+                                   aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell fa-fw"></i>
+                    <!-- Counter - Alerts -->
+                    <span class="badge badge-danger badge-counter">3+</span>
+                </a>
+                <!-- Dropdown - Alerts -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                     aria-labelledby="alertsDropdown">
+                    <h6 class="dropdown-header">
+                        Alerts Center
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-primary">
+                                <i class="fas fa-file-alt text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">December 12, 2019</div>
+                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-success">
+                                <i class="fas fa-donate text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">December 7, 2019</div>
+                            $290.29 has been deposited into your account!
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-warning">
+                                <i class="fas fa-exclamation-triangle text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">December 2, 2019</div>
+                            Spending Alert: We've noticed unusually high spending for your account.
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-envelope fa-fw"></i>
+                    <!-- Counter - Messages -->
+                    <span class="badge badge-danger badge-counter">7</span>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                     aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header">
+                        Message Center
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60"
+                                 alt="">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div class="font-weight-bold">
+                            <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                problem I've been having.
+                            </div>
+                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60"
+                                 alt="">
+                            <div class="status-indicator"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">I have the photos that you ordered last month, how would
+                                you like them sent to you?
+                            </div>
+                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60"
+                                 alt="">
+                            <div class="status-indicator bg-warning"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Last month's report looks great, I am very happy with the
+                                progress so far, keep up the good work!
+                            </div>
+                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                 alt="">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone told
+                                me that people say this to all dogs, even if they aren't good...
+                            </div>
+                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                     aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Settings
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Activity Log
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+</th:block>
+
+<th:block th:fragment="footer">
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+</th:block>
+
+<th:block th:fragment="topbtn">
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+</th:block>
+
+<th:block th:fragment="logoutmodal">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/sb2/login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block th:fragment="jsfiles">
+    <!-- Bootstrap core JavaScript-->
+    <script src="/sb2/vendor/jquery/jquery.min.js"></script>
+    <script src="/sb2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/sb2/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/sb2/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/sb2/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/sb2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/sb2/js/demo/datatables-demo.js"></script>
+</th:block>
+</body>
+</html>

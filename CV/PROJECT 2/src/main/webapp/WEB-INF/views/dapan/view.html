@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout::head"></head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <th:block th:replace="/layout::sidebar"></th:block>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <th:block th:replace="/layout::topbar"></th:block>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800"DapAns</h1>
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">View dapans: <span
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped" id="dataTable" width="100%"
+                                   cellspacing="0">
+                                    <tr class="text-center">
+                                        <th>CauHoi_id</th>
+                                        <td th:text="${dapan.cauHoi.id}"></td>
+                                    </tr>                                    <tr class="text-center">
+                                        <th>name</th>
+                                        <td th:text="${dapan.name}"></td>
+                                    </tr>                                    <tr class="text-center">
+                                        <th>class1</th>
+                                        <td th:text="${dapan.class1}"></td>
+                                    </tr>                                    <tr class="text-center">
+                                        <th>luachon</th>
+                                        <td th:text="${dapan.luachon}"></td>
+                                    </tr>                                    <tr class="text-center">
+                                        <th>value</th>
+                                        <td th:text="${dapan.value}"></td>
+                                    </tr>                                    <tr class="text-center">
+                                        <th>innerText</th>
+                                        <td th:text="${dapan.innerText}"></td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <div class="box-footer mt-2">
+                            <a href="/dapans" class="btn btn-secondary btn-flat">Back to dapans list</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <th:block th:replace="/layout::footer"></th:block>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<th:block th:replace="/layout::topbtn"></th:block>
+
+<!-- Logout Modal-->
+<th:block th:replace="/layout::logoutmodal"></th:block>
+
+<th:block th:replace="/layout::jsfiles"></th:block>
+</body>
+
+</html>
